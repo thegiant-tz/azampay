@@ -13,7 +13,12 @@
             "email": "shaabanbakhresa85@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "scripts": {
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=thegiant-azampay-helper --force"
+        ]
+    },
+    "minimum-stability": "stable",
     "require": {
         "php": ">=5.5",
         "browner12/helpers": "^3.3"

@@ -16,7 +16,7 @@ class AzampayServiceProvider extends ServiceProvider
     {
         $basePath = __DIR__;
         $arrPublishable = [
-            'thegiant-aes-helper' => [
+            'thegiant-azampay-helper' => [
                 "$basePath/Publishables/Helpers" => app_path('Helpers'),
             ]
         ];
