@@ -1,0 +1,21 @@
+{
+    "name": "thegiant/azampay",
+    "description": "This package used to connect to azampay APIs effortlessly.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Thegiant\\Azampay\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Shebyclassic2018",
+            "email": "shaabanbakhresa85@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5",
+        "browner12/helpers": "^3.3"
+    }
+}
