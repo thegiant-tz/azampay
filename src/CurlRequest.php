@@ -38,13 +38,13 @@ class CurlRequest
         return CurlRequest::curlpost((new self)->base_url . $endpoint, $data, 'POST', $headers);
     }
 
-    public static function authenticate($headers = null)
+    public static function authenticate()
     {
-        return CurlRequest::curlpost((new self)->auth_url, [
+        return CurlRequest::post((new self)->auth_url, [
             "appName" => env('AZAMPAY_APP_NAME'),
             "clientId" => env('AZAMPAY_CLIENT_ID'),
             "clientSecret" => env('AZAMPAY_CLIENT_SECRET'),
-        ], 'POST', $headers);
+        ]);
     }
 
     public static function get($endpoint, $data, $headers = null)

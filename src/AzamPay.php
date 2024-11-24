@@ -1,13 +1,29 @@
-<?php 
+<?php
+
 namespace Thegiant\Azampay;
 
-class AzamPay {
+use Thegiant\Azampay\CurlRequest;
 
-    static function authenticate() {
-        return CurlRequest::authenticate();
+class AzamPay
+{
+
+    static function authenticate()
+    {
+        return json_decode(CurlRequest::authenticate());
     }
 
-    static function mnoCheckout($data) {
-        return CurlRequest::post('/azampay/mno/checkout', $data);
+    static function mnoCheckout($accountNumber, $amount, $provider, $externalId,  $additionalProperties = null, $currency = 'TZS')
+    {
+        return CurlRequest::post('/azampay/mno/checkout', [
+            'accountNumber' => $accountNumber,
+            'amount' => $amount,
+            'currency' => $currency ?? 'TZS',
+            'externalId' => $externalId,
+            'additionalProperties' => $additionalProperties,
+            'provider' => $provider,
+        ], [
+            'Authorization' => 'Bearer ' .
+                AzamPay::authenticate()->data->accessToken,
+        ]);
     }
 }
